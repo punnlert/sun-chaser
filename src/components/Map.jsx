@@ -8,16 +8,28 @@ class Map extends Component{
         super(props);
         this.state = {
             time : new Date(),
-            position: 0
+            position: 0,
+            play: true,
         };
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+    }
+
+    handleKeyDown(event){
+        if (event.key == ' '){
+            this.state.play = !this.state.play;
+        }
     }
 
     componentDidMount(){
-        this.timeId = setInterval(() => {
+        document.addEventListener('keydown', this.handleKeyDown, true);
+
+        this.timeId = setInterval  (() => {
             this.setState({
                 time : new Date()
             });
-            this.state.position = this.state.position < 59.999 ? this.state.position + 0.001 : 0;
+            if (this.state.play) {
+                this.state.position = this.state.position < 59.9995 ? this.state.position + 0.0005 : 0;
+            }
         }, 1);
     }
 
@@ -25,12 +37,16 @@ class Map extends Component{
         clearInterval(this.timeId);
     }
 
+    componentWillUnmount(){
+        document.removeEventListener('keydown', this.handleKeyDown);
+    }
+
     render() {
         return (
             <>
                 <div className='mapandpointercontainer'>
                     <div className='mapcontainer'>
-                        <VectorMap map={worldMill} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)'/>
+                        <VectorMap map={worldMill} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)' zoomButtons={false}/>
                     </div>
                     <div className='pointer' style={{transform: `translateX(${this.state.position}vw)`}}></div>
                 </div>
