@@ -1,0 +1,28 @@
+.mapandpointercontainer {
+    width:60vw;
+    height:60vh;
+    margin:auto;
+    position: relative;
+    bottom: 0;
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(42px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.pointer {
+    width: 0.5vw;
+    height: 100%;
+    border-radius: 0.25vw;
+    background: rgba(0, 0, 0, 0.63);
+    position: absolute;
+}
+
+.mapcontainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
