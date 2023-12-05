@@ -46,7 +46,9 @@ class Map extends Component{
             <>
                 <div className='mapandpointercontainer'>
                     <div className='mapcontainer'>
-                        <VectorMap map={worldMill} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)' zoomButtons={false}/>
+                        <VectorMap map={worldMill} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)' 
+// @ts-ignore
+                        zoomButtons={false}/>
                     </div>
                     <div className='pointer' style={{transform: `translateX(${this.state.position}vw)`}}></div>
                 </div>
