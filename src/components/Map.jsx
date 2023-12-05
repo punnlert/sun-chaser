@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { VectorMap } from '@react-jvectormap/core'
-import { worldMill } from '@react-jvectormap/world'
+import { worldMerc } from '@react-jvectormap/world'
+import Pointer from './Pointer'
 import '../components/Map.css'
 
 class Map extends Component{
@@ -28,7 +29,7 @@ class Map extends Component{
                 time : new Date()
             });
             if (this.state.play) {
-                this.state.position = this.state.position < 59.9995 ? this.state.position + 0.0005 : 0;
+                this.state.position = this.state.position < 69.9995 ? this.state.position + 0.0005 : 0;
             }
         }, 1);
     }
@@ -46,11 +47,11 @@ class Map extends Component{
             <>
                 <div className='mapandpointercontainer'>
                     <div className='mapcontainer'>
-                        <VectorMap map={worldMill} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)' 
-// @ts-ignore
-                        zoomButtons={false}/>
+                        <VectorMap map={worldMerc} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)' zoomButtons={false}/>
                     </div>
-                    <div className='pointer' style={{transform: `translateX(${this.state.position}vw)`}}></div>
+                    <div className='pointercontainer' style={{transform: `translateX(${this.state.position - 15}vw)`}}>
+                        <Pointer/>
+                    </div>
                 </div>
             </>
         )
