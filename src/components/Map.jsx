@@ -46,10 +46,37 @@ class Map extends Component{
             <>
                 <div className='mapandpointercontainer'>
                     <div className='mapcontainer'>
-                        <VectorMap map={worldMerc} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)' zoomButtons={false}/>
+                        <VectorMap 
+                        map={worldMerc} 
+                        zoomOnScroll={false} 
+                        backgroundColor='rgba(0, 0, 0, 0)' 
+// @ts-ignore
+                        zoomButtons={false}/>
                     </div>
                     <div className='pointercontainer' style={{transform: `translateX(${this.state.position - 15}vw)`}}>
+                        <div className="thumbnailcontainer">
+                            <div className="thumbnailleft">
+                                <img src="/thumbnail/50178147563_thumb.jpg" alt="" />
+                            </div>
+                            <div className="thumbnailleft">
+                                <img src="/thumbnail/50178152158_thumb.jpg" alt="" />
+                            </div>
+                            <div className="thumbnailleft">
+                                <img src="/thumbnail/50178155243_thumb.jpg" alt="" />
+                            </div>
+                        </div>
                         <div className='pointer'></div>
+                        <div className="thumbnailcontainer">
+                            <div className="thumbnailright">
+                                <img src="/thumbnail/50178156788_thumb.jpg" alt="" />
+                            </div>
+                            <div className="thumbnailright">
+                                <img src="/thumbnail/50178686641_thumb.jpg" alt="" />
+                            </div>
+                            <div className="thumbnailright">
+                                <img src="/thumbnail/50178690881_thumb.jpg" alt="" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
