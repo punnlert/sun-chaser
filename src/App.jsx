@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import Map from './components/Map.jsx'
 
 function App() {

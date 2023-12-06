@@ -28,3 +28,11 @@
     height: 100%;
     position: absolute;
 }
+
+.pointer {
+    width: 2vw;
+    height: 100%;
+    border-radius: 0.25vw;
+    background: rgba(0, 0, 0, 0.3);
+    position: relative;
+}

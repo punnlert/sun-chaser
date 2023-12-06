@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { VectorMap } from '@react-jvectormap/core'
 import { worldMerc } from '@react-jvectormap/world'
-import Pointer from './Pointer'
 import '../components/Map.css'
 
 class Map extends Component{
@@ -50,7 +49,7 @@ class Map extends Component{
                         <VectorMap map={worldMerc} zoomOnScroll={false} backgroundColor='rgba(0, 0, 0, 0)' zoomButtons={false}/>
                     </div>
                     <div className='pointercontainer' style={{transform: `translateX(${this.state.position - 15}vw)`}}>
-                        <Pointer/>
+                        <div className='pointer'></div>
                     </div>
                 </div>
             </>
