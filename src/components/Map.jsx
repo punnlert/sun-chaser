@@ -39,24 +39,26 @@ class Map extends Component{
                 time : new Date()
             });
             if (this.state.play) {
-                this.state.xPosition = this.state.xPosition < 59.9995 ? this.state.xPosition + 0.0005 : 0;
-                this.state.lngPosition = this.state.lngPosition < (360*59.9995/60)-180 ? this.state.lngPosition + 360*0.0005/60 : -180;
+                this.state.xPosition = this.state.xPosition < 91.999 ? this.state.xPosition + 0.001 : 0;
+                this.state.lngPosition = this.state.lngPosition < (360*91.999/92)-180 ? this.state.lngPosition + 360*0.001/92 : -180;
                 this.thumbnailleft = photo_data.filter((item, index) => {
                     const long = parseFloat(item.longitude);
-                    const isInBound = Boolean(((long > this.state.lngPosition - 6) && (long < this.state.lngPosition)));
+                    const id = parseInt(item.id);
+                    const isInBound = Boolean(((long > this.state.lngPosition - 6) && (long < this.state.lngPosition) && (id % 2 == 0)));
                     // for debug
                     // if (isInBound) {console.log(item.id);}
                     return isInBound;
-                }).filter((item, index) => {return index < 6})
+                }).filter((item, index) => {return index < 10})
                 .map((item, index) => {return <Thumbnail key={index} id={item.id} position='left'/>});
 
                 this.thumbnailright = photo_data.filter((item, index) => {
                     const long = parseFloat(item.longitude);
-                    const isInBound = Boolean(((long > this.state.lngPosition) && (long < this.state.lngPosition + 6)));
+                    const id = parseInt(item.id);
+                    const isInBound = Boolean(((long > this.state.lngPosition) && (long < this.state.lngPosition + 6) && (id % 2 != 0)));
                     // for debug
                     // if (isInBound) {console.log(item.id);}
                     return isInBound;
-                }).filter((item, index) => {return index < 6})
+                }).filter((item, index) => {return index < 10})
                 .map((item, index) => {return <Thumbnail key={index} id={item.id} position='right'/>});
             }
         }, 1);
@@ -85,10 +87,10 @@ class Map extends Component{
                         // @ts-ignore
                         zoomButtons={false}
                         onRegionTipShow={(e, label, code) => {e.preventDefault()}}
-                        onMarkerTipShow={(e, label, code) => {e.preventDefault()}}
+                        // onMarkerTipShow={(e, label, code) => {e.preventDefault()}}
                         />
                     </div>
-                    <div className='pointercontainer' style={{transform: `translateX(${this.state.xPosition - 15}vw)`}}>
+                    <div className='pointercontainer' style={{transform: `translateX(${this.state.xPosition - 15}vh)`}}>
                         <div className="thumbnailcontainer">
                             {this.thumbnailleft}
                         </div>

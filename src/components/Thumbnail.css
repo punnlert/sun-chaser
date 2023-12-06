@@ -3,19 +3,28 @@
     height: 10%;
     width: 100%;
     max-width: 14vw;
-    background: rgba(255, 0, 0, 0.5);
+    /* for debug */
+    /* background: rgba(255, 0, 0, 0.5); */
 }
 
 .thumbnailleft img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    /* for debug */
+    /* border: 2px solid red; */
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
     object-position: top right;
 }
 
 .thumbnailright img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    /* for debug */
+    /* border: 2px solid red; */
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
     object-position: top left;
 }

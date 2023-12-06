@@ -1,7 +1,6 @@
 .mapandpointercontainer {
-    width:60vw;
+    width:92vh;
     height:60vh;
-    max-width: 92.30769231vh;
     margin:auto;
     position: relative;
     overflow: hidden;
@@ -11,12 +10,12 @@
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .pointercontainer {
-    width: 30vw;
+    width: 30vh;
     height: 100%;
     /*  for debug */
     /* background: rgba(0, 0, 0, 0.3); */
@@ -26,7 +25,7 @@
 }
 
 .thumbnailcontainer {
-    flex-basis: 14vw;
+    flex-basis: 14vh;
     height: 100%;
     /* for debug */
     /* background: rgba(0, 0, 0, 0.6); */
@@ -43,7 +42,7 @@
 }
 
 .pointer {
-    flex-basis: 2vw;
+    flex-basis: 2vh;
     height: 100%;
     border-radius: 0.25vw;
     background: rgba(0, 0, 0, 0.3);
