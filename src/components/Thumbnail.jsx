@@ -1,5 +1,5 @@
 import React from 'react'
-import './thumbnail.css'
+import './Thumbnail.css'
 
 export const Thumbnail = ({ id, position }) => {
   return (
