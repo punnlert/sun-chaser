@@ -27,15 +27,10 @@ export class TopBar extends Component {
               const latLet = position.coords.latitude >= 0 ? "N" : "S";
               const lngLet = position.coords.longitude >= 0 ? "E" : "W";
 
-              console.log(lat, latLet, lng, lngLet);
-
               this.state.Latitude = lat;
               this.state.Longtitude = lng;
               this.state.LatitudeDirection = latLet;
               this.state.LongitudeDirection = lngLet;
-
-              console.log(this.state);
-              console.log(this.state);
             })
           } else {
             alert("Geolocation Not Supported")
@@ -45,7 +40,7 @@ export class TopBar extends Component {
     render() {
         return (
         <div className='topbarcontainer'>
-            <div>
+            <div className='musiccontainer'>
                 Music
             </div>
             <div className='locationcontainer'>

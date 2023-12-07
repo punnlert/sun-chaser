@@ -1,9 +1,13 @@
 import React from 'react'
+import { storage } from '../firebase.jsx';
+import { getDownloadURL, ref } from 'firebase/storage';
 import './Thumbnail.css'
 
 const handleClick = (id) => (event) => {
-  document.body.style.backgroundImage = `url('/thumbnail/${id}_thumb.jpg')`;
-  console.log(id);
+  getDownloadURL(ref(storage, `/background/${id}.jpg`)).then((url) => {
+    console.log(url);
+    // document.body.style.backgroundImage = `url(${url})`;
+  })
 }
 
 export const Thumbnail = ({ id, position }) => {
