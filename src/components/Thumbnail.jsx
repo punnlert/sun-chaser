@@ -1,13 +1,10 @@
 import React from 'react'
-import { storage } from '../firebase.jsx';
-import { getDownloadURL, ref } from 'firebase/storage';
+import { photo_data } from '../../public/photo_data'
 import './Thumbnail.css'
 
 const handleClick = (id) => (event) => {
-  document.body.style.backgroundImage = `url(/thumbnail/${id}_thumb.jpg)`;
-  // getDownloadURL(ref(storage, `/background/${id}.jpg`)).then((url) => {
-  //   console.log(url);
-  // })
+  const photoURL = photo_data.filter((item) => {return item.id == id})[0].url;
+  document.body.style.backgroundImage = `url(${photoURL})`;
 }
 
 export const Thumbnail = ({ id, position }) => {
