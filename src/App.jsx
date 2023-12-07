@@ -2,22 +2,22 @@ import React, { useEffect, useState } from 'react'
 // @ts-ignore
 import Map from './components/Map.jsx'
 import TopBar from './components/TopBar.jsx'
+import { photo_data } from '../public/photo_data.jsx'
+
 import './App.css'
 
 function App() {
   const [location, setLocation] = useState({latLng: [0, 0]});
-  
+
+  const randomBG = () => {
+    const randomIndex = Math.floor(Math.random() * photo_data.length);
+    const bgURL = photo_data[randomIndex].url;
+    document.body.style.backgroundImage = `url(${bgURL})`;
+  }
+
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        setLocation({latLng: [lat, lng]})
-      })
-    } else {
-      alert("Geolocation Not Supported")
-    }
-  })
+    randomBG();
+  }, []);
   
   return (
     <div className='appcontainer'>

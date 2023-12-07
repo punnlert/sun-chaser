@@ -35,8 +35,8 @@ class Map extends Component{
 
         this.timeId = setInterval  (() => {
             if (this.state.play) {
-                this.state.xPosition = this.state.xPosition < 91.999 ? this.state.xPosition + 0.001 : 0;
-                this.state.lngPosition = this.state.lngPosition < (360*91.999/92)-180 ? this.state.lngPosition + 360*0.001/92 : -180;
+                this.setState({ xPosition: this.state.xPosition < 91.999 ? this.state.xPosition + 0.001 : 0 });
+                this.setState({ lngPosition: this.state.lngPosition < (360*91.999/92)-180 ? this.state.lngPosition + 360*0.001/92 : -180 })
                 this.thumbnailleft = photo_data.filter((item, index) => {
                     const long = parseFloat(item.longitude);
                     const id = parseInt(item.id);
