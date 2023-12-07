@@ -40,8 +40,8 @@ export class TopBar extends Component {
     render() {
         return (
         <div className='topbarcontainer'>
-            <div className='musiccontainer'>
-                Music
+            <div className='quotecontainer'>
+                We are all same humans, admiring the beautiful sky.
             </div>
             <div className='locationcontainer'>
                 {`${this.state.Latitude} ${this.state.LatitudeDirection} ${this.state.Longitude} ${this.state.LongitudeDirection}`}

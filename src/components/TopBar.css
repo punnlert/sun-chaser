@@ -11,7 +11,7 @@
     -webkit-backdrop-filter: blur(20px);
 }
 
-.musiccontainer {
+.quotecontainer {
     width: auto;
     height: auto;
     padding: 2%;
@@ -21,4 +21,8 @@
     width: auto;
     height: auto;
     padding: 2%;
+}
+
+.title {
+    align-self: center;
 }
