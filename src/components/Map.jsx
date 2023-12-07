@@ -87,7 +87,7 @@ class Map extends Component{
                         // @ts-ignore
                         zoomButtons={false}
                         onRegionTipShow={(e, label, code) => {e.preventDefault()}}
-                        // onMarkerTipShow={(e, label, code) => {e.preventDefault()}}
+                        onMarkerTipShow={(e, label, code) => {e.preventDefault()}}
                         />
                     </div>
                     <div className='pointercontainer' style={{transform: `translateX(${this.state.xPosition - 15}vh)`}}>
