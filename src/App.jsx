@@ -6,18 +6,6 @@ import './App.css'
 
 function App() {
   const [location, setLocation] = useState({latLng: [0, 0]});
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        setLocation({latLng: [lat, lng]})
-      })
-    } else {
-      alert("Geolocation Not Supported")
-    }
-  })
   
   return (
     <div className='appcontainer'>
