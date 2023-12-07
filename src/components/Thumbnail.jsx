@@ -4,10 +4,10 @@ import { getDownloadURL, ref } from 'firebase/storage';
 import './Thumbnail.css'
 
 const handleClick = (id) => (event) => {
-  getDownloadURL(ref(storage, `/background/${id}.jpg`)).then((url) => {
-    console.log(url);
-    // document.body.style.backgroundImage = `url(${url})`;
-  })
+  document.body.style.backgroundImage = `url(/thumbnail/${id}_thumb.jpg)`;
+  // getDownloadURL(ref(storage, `/background/${id}.jpg`)).then((url) => {
+  //   console.log(url);
+  // })
 }
 
 export const Thumbnail = ({ id, position }) => {
