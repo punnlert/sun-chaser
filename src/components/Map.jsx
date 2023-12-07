@@ -11,7 +11,6 @@ class Map extends Component{
     constructor(props){
         super(props);
         this.state = {
-            time : new Date(),
             xPosition: 0,
             lngPosition: -168,
             play: true
@@ -35,9 +34,6 @@ class Map extends Component{
         document.addEventListener('keydown', this.handleKeyDown, true);
 
         this.timeId = setInterval  (() => {
-            this.setState({
-                time : new Date()
-            });
             if (this.state.play) {
                 this.state.xPosition = this.state.xPosition < 91.999 ? this.state.xPosition + 0.001 : 0;
                 this.state.lngPosition = this.state.lngPosition < (360*91.999/92)-180 ? this.state.lngPosition + 360*0.001/92 : -180;
@@ -62,10 +58,6 @@ class Map extends Component{
                 .map((item, index) => {return <Thumbnail key={index} id={item.id} position='right'/>});
             }
         }, 1);
-    }
-
-    componentWillMount(){
-        clearInterval(this.timeId);
     }
 
     componentWillUnmount(){
