@@ -52,6 +52,8 @@ class Map extends Component{
             if (this.state.play) {
                 this.setState({ xPosition: this.state.xPosition > 0 ? this.state.xPosition - 0.001 : 92 });
                 this.setState({ lngPosition: this.state.lngPosition > -180 ? this.state.lngPosition - 360*0.001/92 : 180 })
+                // to-do later setcurrent bar lng
+                // this.props.setlng(this.state.lngPosition);
                 this.thumbnailleft = photo_data.filter((item, index) => {
                     const long = parseFloat(item.longitude);
                     const id = parseInt(item.id);

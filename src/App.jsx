@@ -11,6 +11,7 @@ function App() {
   const [bgID, setBgID] = useState("");
   const [bgTitle, setBgTitle] = useState("");
   const [bgURL, setURL] = useState("");
+  const [lngPosition, setLng] = useState(0);
 
   const changeID = (newID) => {
     setBgID(newID);
@@ -22,6 +23,10 @@ function App() {
 
   const changeURL = (newURL) => {
     setURL(newURL);
+  }
+
+  const changeLng = (newLng) => {
+    setLng(newLng);
   }
 
   const randomBG = () => {
@@ -48,9 +53,9 @@ function App() {
   
   return (
     <div className='appcontainer'>
-      <TopBar/>
+      <TopBar currentLng={lngPosition}/>
       <div className="contentcontainer">
-        <Map setbgid={changeID} setbgtitle={changeTitle} setbgurl={changeURL}/>
+        <Map setbgid={changeID} setbgtitle={changeTitle} setbgurl={changeURL} setlng={changeLng}/>
       </div>
       <div className="bottombarcontainer">
         <div className="bgtitlecontainer">

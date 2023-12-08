@@ -19,10 +19,17 @@
 }
 
 .locationcontainer {
-    width: auto;
+    display: flex;
+    width: 9%;
     height: auto;
+    align-items: flex-start;
+    justify-content: space-between;
     padding: 2%;
     text-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+svg {
+    filter: drop-shadow(0 0px 5px rgba(0, 0, 0, 0.3));
 }
 
 .title {
