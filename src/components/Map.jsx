@@ -41,6 +41,7 @@ class Map extends Component{
         const photoTitle = this.markers[index].name;
 
         this.props.setbgtitle(photoTitle);
+        this.props.setbgurl(photoURL);
         document.body.style.backgroundImage = `url(${photoURL})`;
     }
 
@@ -59,7 +60,7 @@ class Map extends Component{
                     // if (isInBound) {console.log(item.id);}
                     return isInBound;
                 }).filter((item, index) => {return index < 6})
-                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='left' setbgtitle={this.props.setbgtitle}/>});
+                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='left' setbgtitle={this.props.setbgtitle} setbgurl={this.props.setbgurl}/>});
 
                 this.thumbnailright = photo_data.filter((item, index) => {
                     const long = parseFloat(item.longitude);
@@ -69,7 +70,7 @@ class Map extends Component{
                     // if (isInBound) {console.log(item.id);}
                     return isInBound;
                 }).filter((item, index) => {return index < 6})
-                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='right' setbgtitle={this.props.setbgtitle}/>});
+                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='right' setbgtitle={this.props.setbgtitle} setbgurl={this.props.setbgurl}/>});
             }
         }, 1);
     }

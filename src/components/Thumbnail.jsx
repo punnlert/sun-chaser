@@ -2,7 +2,7 @@ import React from 'react'
 import { photo_data } from '../../public/photo_data'
 import './Thumbnail.css'
 
-export const Thumbnail = ({ id, position, setbgtitle }) => {
+export const Thumbnail = ({ id, position, setbgtitle, setbgurl }) => {
 
   const handleClick = (id) => (event) => {
     const photoObj = photo_data.filter((item) => {return item.id == id})[0]
@@ -10,6 +10,7 @@ export const Thumbnail = ({ id, position, setbgtitle }) => {
     const photoTitle = photoObj.title;
 
     setbgtitle(photoTitle);
+    setbgurl(photoURL);
     document.body.style.backgroundImage = `url(${photoURL})`;
   }
 
