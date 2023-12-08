@@ -15,12 +15,14 @@
     width: auto;
     height: auto;
     padding: 2%;
+    text-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .locationcontainer {
     width: auto;
     height: auto;
     padding: 2%;
+    text-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .title {

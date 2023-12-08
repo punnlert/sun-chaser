@@ -16,10 +16,15 @@ class Map extends Component{
             play: true
         };
         this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleMarkerClick = this.handleMarkerClick.bind(this);
 
 
         this.markers =  photo_data.map((item) => {
-                        const markerItem = {latLng: [item.latitude, item.longitude], name: item.title ? item.title : 'None', imgsrc: `/thumbnail/${item.id}_thumb.jpg`};
+                        const markerItem = {latLng: [item.latitude, item.longitude], 
+                                            name: item.title ? item.title : 'Untitled', 
+                                            imgsrc: `/thumbnail/${item.id}_thumb.jpg`, 
+                                            ID: item.id,
+                                            URL: item.url};
                         return markerItem;
                         });
     }
@@ -28,6 +33,15 @@ class Map extends Component{
         if (event.key == ' '){
             this.state.play = !this.state.play;
         }
+    }
+
+    handleMarkerClick(event, index){
+        console.log(event);
+        const photoURL = this.markers[index].URL;
+        const photoTitle = this.markers[index].name;
+
+        this.props.setbgtitle(photoTitle);
+        document.body.style.backgroundImage = `url(${photoURL})`;
     }
 
     componentDidMount(){
@@ -45,7 +59,7 @@ class Map extends Component{
                     // if (isInBound) {console.log(item.id);}
                     return isInBound;
                 }).filter((item, index) => {return index < 6})
-                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='left'/>});
+                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='left' setbgtitle={this.props.setbgtitle}/>});
 
                 this.thumbnailright = photo_data.filter((item, index) => {
                     const long = parseFloat(item.longitude);
@@ -55,7 +69,7 @@ class Map extends Component{
                     // if (isInBound) {console.log(item.id);}
                     return isInBound;
                 }).filter((item, index) => {return index < 6})
-                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='right'/>});
+                .map((item, index) => {return <Thumbnail key={index} id={item.id} position='right' setbgtitle={this.props.setbgtitle}/>});
             }
         }, 1);
     }
@@ -73,13 +87,14 @@ class Map extends Component{
                         map={worldMerc} 
                         zoomOnScroll={false} 
                         backgroundColor='rgba(0, 0, 0, 0)' 
-                        markerStyle={ { initial: { fill: 'rgba(255, 0, 0, 0.4)', stroke: 'rgba(0, 0, 0, 0)'} } }
+                        markerStyle={ { initial: { fill: 'rgba(255, 57, 57, 0.2)', stroke: 'rgba(0, 0, 0, 0)'} } }
                         // @ts-ignore
                         markers={ this.markers }
                         // @ts-ignore
                         zoomButtons={false}
                         onRegionTipShow={(e, label, code) => {e.preventDefault()}}
                         onMarkerTipShow={(e, label, code) => {e.preventDefault()}}
+                        onMarkerClick={this.handleMarkerClick}
                         />
                     </div>
                     <div className='pointercontainer' style={{transform: `translateX(${this.state.xPosition - 15}vh)`}}>
